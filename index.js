@@ -18,3 +18,4 @@ nome = window.prompt("Insira seu nome:")
 //prompt("Olá")
 
 document // faz referencia ao html
+
