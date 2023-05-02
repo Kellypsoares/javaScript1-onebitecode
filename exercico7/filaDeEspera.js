@@ -1,13 +1,13 @@
 let nomesEspera = ["João" , "Claúdio" , "Ana" , "Alice" , "Kelly" , "Felipe" , "Thiago"]
 
-let lista = " "
+let escolha = " "
 
 do { 
+  let pacientes = " "
   for (let indice = 0; indice < nomesEspera.length; indice++) {
-    const elemento = nomesEspera[indice]
-    lista += "\n" + indice + "º" + elemento}
+    pacientes += (indice + 1) + "º _ " + nomesEspera[indice] + "\n"}
 
- escolha = window.prompt("Lista de espera:" + lista +
+ escolha = window.prompt("Lista de espera:" + pacientes +
 "\nEscolha a opção desejada:" +
 "\n1-Adicionar novo paciente " +
 "\n2-Consultar paciente" +
@@ -15,12 +15,12 @@ do {
 
     switch (escolha) {
       case "1" :
-       let paciente =  window.prompt( "Qual o nome do paciente a ser adicionado?")
-        lista = nomesEspera.push(paciente)
+       let novoPaciente =  window.prompt( "Qual o nome do paciente a ser adicionado?")
+        nomesEspera.push(novoPaciente)
           break
       case "2" :
-        lista = nomesEspera.shift()
-        alert(lista)
+       const pacienteConsultado = nomesEspera.shift()
+        alert(pacienteConsultado + " foi consultado(a).")
           break
       case "3" :
           alert( "Você escolheu a opção " + escolha + " e estamos finalizando o atendimento.")
