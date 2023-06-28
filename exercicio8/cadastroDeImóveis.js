@@ -1,11 +1,10 @@
-let imoveis = [
-    ["João", "3 quartos" ,"2 banheiros", "Sem garagem"] , [] , [] ]
+let imoveis = [ ]
 
 let escolha = " "
 
 do { 
   
- escolha = window.prompt("Imóveis cadastrados:" + imoveis.length +
+ escolha = window.prompt(" Total imóveis cadastrados:" + imoveis.length +
 "\nEscolha a opção desejada:" +
 "\n1-Salvar um novo imóveis" +
 "\n2-Mostrar todos imóveis salvos" +
@@ -13,29 +12,43 @@ do {
 
     switch (escolha) {
       case "1" :
-       let imovelProprietario =  window.prompt( "Qual o nome do proprietário?")
-        baralho.unshift(imovelProprietario)
-    
-        let imovelNumQuartos =  window.prompt( "Qual a quantidade de quartos?")
-        baralho.unshift(imovelNumQuartos)
+       let imovel = {}
 
-        let imovelNumBanheiros =  window.prompt( "Qual a quantidade de banheiros?")
-        baralho.unshift(imovelNumBanheiros)
+       imovel.proprietario = window.prompt("Informe o nome do proprietário do imóvel:")
+       imovel.quartos = window.prompt( "Informe o nome número de quartos do imóvel:")
+       imovel.banheiros = window.prompt ("Quantos banheiros possuem o imóvel?")
+       imovel.garagem = window.prompt ("O banhheiro possui garagem ? (Sim/Não)")
 
-        let imovelGaragem =  window.prompt( "O nome imóvel possui garagem?")
-        baralho.unshift(imovelGaragem)
-          break
-      case "2" :
-       const cartaRetirada = baralho.shift()
-       if (!cartaRetirada) {
-        alert("Não há nenhuma carta no baralho")
-       } else {
-        alert(cartaRetirada + " foi a carta retirada.")
+       const confirmação = confirm (
+        " salvar este imóvel ?\n" +
+        "\nPropietário: " + imovel.proprietario + 
+        "\nQuartos: " + imovel.quartos +
+        "\nBanheiros: " + imovel.banheiros +
+        "\nPossui garagem? "+ imovel.garagem 
+       )
+        
+       if (confirmação) {
+        imoveis.push (imovel)
        }
-          break
+
+       break
+         
+      case "2" :
+        for (let i =0; i< imoveis.length; i ++) {
+            alert (
+                "Imóvel " + (i + 1) +
+                "\nProprietário: " + imoveis[i].proprietario +
+                "\nQuartos: " + imoveis[i].quartos +
+                "\nBanheiros: " + imoveis[i].banheiros +
+                "\nPossui garagem? " + imoveis[i].garagem 
+
+            )
+           
+        }
+        break
       case "3" :
           alert( "Você escolheu a opção " + escolha + " e estamos finalizando.")
-          break
+          break1
       default :
           alert( "Opção inválida")
     }
